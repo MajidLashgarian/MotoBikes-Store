@@ -1,7 +1,7 @@
 # MotoBikes-Store
 A Simple and exampe MotoBike Store with laravel framework
 
-#problem
+#Problem
 Using Laravel as a framework (http://laravel.com), create an application for motorbikes.
 Use Eloquent for the models, and Blade-syntax in the views. Start with an empty Laravel project.
 
@@ -15,3 +15,5 @@ Public part:
 * Add sorting, it should be possible to sort by price and by date (date the bike was added)
 * Add filtering (for example by color)
 
+#Coding Styl
+This project follows the PSR-4 and PSR-1 coding standards.You can find These coding style description in root folder.
