@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Requests\Request;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -23,6 +24,12 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+    protected $redirectPath = '/';
+
+    protected $redirectAfterLogout = '/';
+
+    protected $loginPath = '/admin/login';
+
     /**
      * Create a new authentication controller instance.
      *
@@ -42,7 +49,6 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
@@ -57,9 +63,46 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'permission'=> 1
         ]);
     }
+
+    /**
+     * Check database if there is an admin user then show login page view
+     * othwewise show register page
+     *
+     * @param Request $request request data which call this function
+     * @return 404 error
+     */
+    public function canRegister(\Illuminate\Http\Request $request)
+    {
+        $allAdminUser = User::all()->where('permission' , 1);
+        //if there is a request for view
+        if($request->isMethod('get'))
+        {
+
+            if($allAdminUser->count() >  0 )
+            {
+                return $this->getLogin(); //show Login View
+            }
+            else{
+                return $this->getRegister();
+            }
+        }else if($request->isMethod('post')){ //This request sent from form register
+
+            if($allAdminUser->count() >  0 )
+            {
+                App::abort(404);
+            }
+            else{
+                return $this->postRegister($request);
+            }
+        }
+        App::abort(404);
+    }
+
+
+
 }

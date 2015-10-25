@@ -1,0 +1,61 @@
+
+<!-- saved from url=(0044)http://localhost:8081/search?color=%23000000 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="./Register Success_files/style.css">
+        <title>Register Success</title>
+    </head>
+    <body>
+        <a href="http://localhost:8081/">Main Page</a>
+            <a href="http://localhost:8081/admin/register_newbike">Register New Motobike</a>
+        <a href="http://localhost:8081/admin/logout">Log out</a>
+        
+            <p>Last Login : 2014/2/13 13:00:00 </p>
+    
+    <hr>
+    <h1>Search Result</h1>
+    <div class="container">
+        
+<div style="width: 80%;margin: auto">
+    <form method="get" action="http://localhost:8081/search">
+        <input type="color" name="color" value="">
+        <button style="width: 100px;height: 30px" type="submit">Filter By color</button>
+    </form>
+    <br>
+    <form method="get" action="http://localhost:8081/search">
+        <input style="width: 400px; height: 30px" type="text" name="query" placeholder="Enter Vendor or Modelname.Regualr expersion accepted ">
+        <button style="width: 100px;height: 30px" type="submit">Search</button>
+    </form>
+</div><table style="width:80% ; margin: auto">
+    <tbody>
+    <tr>
+        <th>ID</th>
+        <th>Model Name</th>
+        <th>Vendor</th>
+        <th>Color</th>
+        <th>Engine Size(CC)</th>
+        <th>Weight</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Data added</th>
+    </tr>
+            <tr style="cursor: pointer" onclick="window.location.href = &#39;/admin/motobike/1&#39;;">
+            <td>1</td>
+        <td>Race T series</td>
+        <td>BMW</td>
+        <td><div style="height: 50px; width: 50px;background-color: #000000; margin: auto"></div></td>
+        <td>620000</td>
+        <td>30000</td>
+        <td>100000</td>
+        <td><img src="./Register Success_files/php7ioMFu" style="width: 100px"></td>
+        <td>2015-10-25 16:37:23</td>
+    </tr>
+
+
+        </tbody>
+</table>
+
+    <button><a href="http://localhost:8081/">Back to Home</a></button>
+    <button><a href="http://localhost:8081/admin/register_newbike">Create New Motobike</a></button>
+    </div>
+    
+</body></html>
