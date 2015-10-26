@@ -21,9 +21,9 @@ To config your localcomputer to run nginx and fast-cgi you can read [helpful art
 
 # Road Map 
   * Ver 0.5
-    [x] build Backend framework
+    - [x] build Backend framework
   * Ver 1.0
-    [ ] build Frontend with jquery and angular.js
+    - [ ] implement Frontend with jquery and angular.js
   
 # Scenario
   Enter main page as '/' route and then you can register admin user after click on login link in header(for first time login route redirect to register admin user link after that you can login to dashboard with login link).
@@ -31,6 +31,5 @@ To config your localcomputer to run nginx and fast-cgi you can read [helpful art
   Also search, filtering and sorting feature added to main page.
 
 # Unit test
-  Unit test implemented with help of testing module in laravel which implemenet based on phpunit. you can run php test by run below command in root folder of project.
-  > phpunit
+  Unit test implemented with help of testing module in laravel which implemenet based on phpunit. you can run php test by run **phpunit** command in root folder of project.
   
